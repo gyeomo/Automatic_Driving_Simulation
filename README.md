@@ -118,7 +118,7 @@ void Draw_Line(Mat* originImg, float* resultLine, Point* lineP, vector<Vec2f> li
 	slopeSum = slopeSum + slope;
 	angleSum = angleSum + angle;
 }
-"`
+
 
 
 
