@@ -30,14 +30,18 @@ You can quit the console of visual studio.
 <code>
 void Detect_Draw_Line(Mat* originImg, Mat* ROIimg, float* resultLine, Point* lineP)
 {
+	
 	vector<Vec2f> lines;
 	int leftFlag = 0, rightFlag = 0;
 	Point leftP[2], rightP[2], banishP;
 	HoughLines(*ROIimg, lines, 1, CV_PI / 180, 50, 0, 0, 80.0*CV_PI / 180.0, 90.0*CV_PI / 180.0);//왼쪽커브
+	
 	if (lines.size() == 0)
 		HoughLines(*ROIimg, lines, 1, CV_PI / 180, 50, 0, 0, 90.0*CV_PI / 180.0, 100.0*CV_PI / 180.0);//오른쪽커브
+		
 	if (lines.size() == 0) {
 		HoughLines(*ROIimg, lines, 1, CV_PI / 180, 50, 0, 0, 0, 80.0*CV_PI / 180.0);//왼쪽직진
+		
 		if (lines.size() > 0)
 		{
 			Draw_Line(originImg, resultLine, lineP, lines);
@@ -49,6 +53,7 @@ void Detect_Draw_Line(Mat* originImg, Mat* ROIimg, float* resultLine, Point* lin
 			lines.clear();
 
 		}
+		
 		HoughLines(*ROIimg, lines, 1, CV_PI / 180, 50, 0, 0, 100.0*CV_PI / 180.0, CV_PI);//오른쪽직진
 		if (lines.size() > 0)
 		{
@@ -94,6 +99,7 @@ void Detect_Draw_Line(Mat* originImg, Mat* ROIimg, float* resultLine, Point* lin
 
 void Draw_Line(Mat* originImg, float* resultLine, Point* lineP, vector<Vec2f> lines) {
 	// Theta가 가장 큰 선 1개만 검출
+	
 	resultLine[RHO] = lines[0][0];
 	resultLine[THETA] = lines[0][1];
 
@@ -118,7 +124,6 @@ void Draw_Line(Mat* originImg, float* resultLine, Point* lineP, vector<Vec2f> li
 	slopeSum = slopeSum + slope;
 	angleSum = angleSum + angle;
 }
-
 <code>
 
 
