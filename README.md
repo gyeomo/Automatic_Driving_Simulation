@@ -27,7 +27,7 @@ You can quit the console of visual studio.
 
 
 
-"`
+"'
 void Detect_Draw_Line(Mat* originImg, Mat* ROIimg, float* resultLine, Point* lineP)
 {
 	vector<Vec2f> lines;
