@@ -27,6 +27,12 @@ You can quit the console of visual studio.
 
 
 
+#
+
+**Below this is a key part of autonomous driving.**
+
+**You can sense the line and check the slope to see which direction you should go.**
+
 <code>
 void Detect_Draw_Line(Mat* originImg, Mat* ROIimg, float* resultLine, Point* lineP)
 {
@@ -94,10 +100,10 @@ void Detect_Draw_Line(Mat* originImg, Mat* ROIimg, float* resultLine, Point* lin
 	}
 	else
 		straightFlag = 0;
-	//////////////////////////////////////////
 }
 
-void Draw_Line(Mat* originImg, float* resultLine, Point* lineP, vector<Vec2f> lines) {
+void Draw_Line(Mat* originImg, float* resultLine, Point* lineP, vector<Vec2f> lines) 
+{
 	// Theta가 가장 큰 선 1개만 검출
 	
 	resultLine[RHO] = lines[0][0];
